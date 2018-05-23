@@ -1,0 +1,8 @@
+.flex {
+  display: flex;
+}
+
+.leftPart {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,62 @@
+{
+  "name": "homix_project",
+  "version": "0.0.1",
+  "description": "Homix",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/server/index.js",
+    "dev": "webpack-dev-server --env.production=false --mode development --open",
+    "prod": "webpack-dev-server --env.production=true --mode production --open",
+    "build": "webpack --env.production=true --mode production --output ./dist/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stoianivanov/homixProject"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-persist": "^5.9.1",
+    "redux-thunk": "^2.2.0",
+    "semantic-ui-react": "^0.80.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>testSetup.js"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "classnames": "^2.2.5",
+    "css-loader": "^0.28.11",
+    "cypress": "^2.1.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "fetch-mock": "^6.4.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^22.4.3",
+    "jest-enzyme": "^6.0.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.1",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-test-renderer": "^16.3.2",
+    "redux": "^4.0.0",
+    "redux-mock-store": "^1.5.1",
+    "style-loader": "^0.20.3",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14",
+    "webpack-dev-server": "^3.1.3"
+  }
+}

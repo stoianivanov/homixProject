@@ -1,0 +1,16 @@
+.profilePicture {
+  border-radius: 50%;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid gray;
+  padding: 1em;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
