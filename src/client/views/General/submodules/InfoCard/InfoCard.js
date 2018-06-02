@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { connect } from "react-redux";
+import { Card, Image, Icon } from 'semantic-ui-react';
 
 import styles from "./InfoCard.css";
 
@@ -9,17 +10,24 @@ const mapStateToProps = state => ({
 });
 
 const InfoCard = ({ user }) => (
-  <div className={styles.card}>
-    <img className={styles.profilePicture} src={user.profilePicture} />
-    <div className={styles.userInfo}>
-      <span>
-        {user.firstName} {user.lastName}
-      </span>
-      <span>{user.position}</span>
-      <span>{user.email}</span>
-      <span>{user.phone}</span>
-    </div>
-  </div>
+  <Card>
+    <Image src={user.profilePicture} />
+    <Card.Content>
+      <Card.Header>{user.firstName} {user.lastName}</Card.Header>
+      <Card.Meta>Joined in {user.startDate}</Card.Meta>
+      <Card.Description>{user.position}</Card.Description>
+    </Card.Content>
+    <Card.Content extra>
+      <div>
+        <Icon name='mail outline' />
+        {user.email}
+      </div>
+      <div>
+        <Icon name='phone' />
+        {user.phone}
+      </div>
+    </Card.Content>
+  </Card>
 );
 
 export default connect(mapStateToProps)(InfoCard);

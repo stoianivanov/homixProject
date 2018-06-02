@@ -6,7 +6,8 @@ const initialState = {
     profilePicture:
       "https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg",
     position: "Software Engineer",
-    phone: "0889152636"
+    phone: "0889152636",
+    startDate: '2000',
   }
 };
 

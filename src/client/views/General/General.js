@@ -9,7 +9,7 @@ import styles from "./General.css";
 const General = () => (
   <Fragment>
     <Header activeItem={"general"} />
-    <div className={styles.flex}>
+    <div className={styles.wrapper}>
       <div className={styles.leftPart}>
         <Submodules.InfoCard />
         <Submodules.ProjectRole />
