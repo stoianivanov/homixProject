@@ -1,66 +1,58 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import { Table } from "semantic-ui-react"
+import { connect } from "react-redux";
 
-const Project = () => (
-  <div>
-    <table>
-      <tr>
-        <td>Duration</td>
-        <td>17 May - 01 August 2017</td>
-      </tr>
-      <tr>
-        <td>Project Roles</td>
-        <td>Front-end Developer</td>
-      </tr>
-      <tr>
-        <td>Customer</td>
-        <td>Some Customer name</td>
-      </tr>
-      <tr>
-        <td>Project description</td>
-        <td>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus varius lorem 
-          sed laoreet. Aenean elementum ultrices nibh, tincidunt varius risus posuere vel. 
-          Integer nisl risus, fermentum sed dapibus et, gravida vel lacus. Aenean sodales 
-          efficitur leo eget rutrum. Fusce ut euismod turpis, a blandit neque. Praesent id 
-          lacus ornare felis feugiat cursus id vitae tortor. Curabitur sit amet tristique ligula.
-          Vestibulum molestie vel magna at viverra. Nulla sed erat dui. Donec et tempus lorem. 
-          Maecenas cursus finibus mollis. Phasellus blandit quam in nisi tristique, in cursus
-          diam aliquam
-        </td>
-      </tr>
-      <tr>
-        <td>Participation</td>
-        <td>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus varius lorem sed 
-          laoreet. Aenean elementum ultrices nibh, tincidunt varius risus posuere vel. 
-          Integer nisl risus, fermentum sed dapibus et, gravida vel lacus. Aenean
-          sodales efficitur leo eget rutrum. Fusce ut euismod turpis, a blandit neque.
-        </td>
-      </tr>
-      <tr>
-        <td>Team</td>
-        <td>
-          2 backend developers
-          2 frontend developers
-          1 manual QA
-        </td>
-      </tr>
-      <tr>
-        <td>Tools and technologies</td>
-        <td>
-          React 
-          React Native 
-          ES6
-          Webpack
-          Google maps API
-          Redux
-          Jest
-          Enzyme
-        </td>
-      </tr>
-    </table>
-  </div>
+const mapStateToProps = state  => ({
+  pastProjects: state.pastProjects.pastProjects
+});
+const Project = ({ pastProjects }) => (
+  <div>{
+  pastProjects.map(project => (
+    
+    <Table style={{margin: '0em 1em', width: '70%'}}>
+     <Table.Header>
+      <Table.Row>
+        <Table.HeaderCell>{project.name }</Table.HeaderCell>
+        <Table.HeaderCell />
+      </Table.Row>
+    </Table.Header> 
+    
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>Duration</Table.Cell>
+        <Table.Cell>{ project.duration }</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Project Roles</Table.Cell>
+        <Table.Cell>{ project.projectRoles}</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Customer</Table.Cell>
+        <Table.Cell>{ project.customer }</Table.Cell>
+      </Table.Row>      
+      <Table.Row>
+        <Table.Cell>Project description</Table.Cell>
+        <Table.Cell>{ project.projectDescription }</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Participation</Table.Cell>
+        <Table.Cell>{  project.participation }</Table.Cell>
+        </Table.Row>
+      <Table.Row>
+        <Table.Cell>Team</Table.Cell>
+        <Table.Cell>{  project.team }</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Tools and technologies</Table.Cell>
+        <Table.Cell>{ project.toolsAndTechnologies }</Table.Cell>
+      </Table.Row>
+    </Table.Body>
+  </Table>
+  ))
+}
+</div>
+ 
 );
 
-export default Project;
+export default connect(mapStateToProps)(Project);
