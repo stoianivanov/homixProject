@@ -1,27 +1,53 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import { connect } from "react-redux";
+import { Table } from "semantic-ui-react"
 
-const Primary = () => (
-  <div>
-    <table>
-      <tr>
-        <td>Status</td>
-        <td>Full-time employee</td>
-      </tr>
-      <tr>
-        <td>Job</td>
-        <td>Software Engineer</td>
-      </tr>
-      <tr>
-        <td>Primary Skill</td>
-        <td>JavaScript</td>
-      </tr>
-      <tr>
-        <td>Languages</td>
-        <td>English B2</td>
-      </tr>
-    </table>
-  </div>
+const mapStateToProps = state  => ({
+  characteristics: state.general.characteristics
+});
+
+const Primary = ({characteristics}) => (
+
+    <Table fixed>
+    <Table.Header>
+      <Table.Row>
+        <Table.HeaderCell>Primary</Table.HeaderCell>
+        <Table.HeaderCell/>
+      </Table.Row>
+    </Table.Header>
+
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>Status</Table.Cell>
+        <Table.Cell>{characteristics.status}</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Job</Table.Cell>
+        <Table.Cell>{characteristics.job}</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Job Level</Table.Cell>
+        <Table.Cell>{characteristics.level}</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Key Skill</Table.Cell>
+        <Table.Cell>{characteristics.keySkill}</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Primary Skill</Table.Cell>
+        <Table.Cell>{characteristics.skill}</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Languages</Table.Cell>
+        <Table.Cell>{characteristics.lang}</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Mentor</Table.Cell>
+        <Table.Cell>{characteristics.mentor}</Table.Cell>
+      </Table.Row>
+    </Table.Body>
+    </Table>
 );
 
-export default Primary;
+export default connect(mapStateToProps)(Primary);

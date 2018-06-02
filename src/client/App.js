@@ -15,6 +15,7 @@ const mapStateToProps = state => ({
 
 // router
 const App = ({ activeItem }) => {
+
   switch (activeItem) {
     case "general":
       return <General />;

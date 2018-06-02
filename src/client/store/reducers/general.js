@@ -8,6 +8,15 @@ const initialState = {
     position: "Software Engineer",
     phone: "0889152636",
     startDate: '2000',
+  },
+  characteristics: {
+    status: "Full Time",
+    job: "DEV",
+    level: "level 1",
+    keySkill: "N/A",
+    skill: "JS",
+    lang: "English B2",
+    mentor:"Pesho peshev"
   }
 };
 
