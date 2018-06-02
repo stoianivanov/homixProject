@@ -1,4 +1,4 @@
-indexconst configDB = require('../config/dbconfig.js');
+const configDB = require('../config/dbconfig.js');
 const mongodb = require('mongodb');
 const monk = require('monk');
 const db = monk(configDB.url);
@@ -12,6 +12,9 @@ const path = require("path");
 app.set('view engine', 'html');
 app.use(express.static(__dirname + "./../dist"));
 
+// app.get("/", function(req, res) {
+//     res.sendFile(path.join(__dirname + "./../dist/index.html"));
+// });
 app.get("/test", function(req, res) {
     res.send({
         "_id": {
