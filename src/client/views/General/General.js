@@ -10,13 +10,11 @@ const General = () => (
   <Fragment>
     <Header activeItem={"general"} />
     <div className={styles.wrapper}>
-      <div className={styles.leftPart}>
-        <Submodules.InfoCard />
-        <Submodules.ProjectRole />
-      </div>
       <div className={styles.flex}>
+        <Submodules.InfoCard />
         <Submodules.Primary />
       </div>
+      <Submodules.ProjectRole />
     </div>
   </Fragment>
 );
