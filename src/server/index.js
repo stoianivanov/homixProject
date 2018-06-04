@@ -10,11 +10,9 @@ const port = 3000;
 const path = require("path");
 
 app.set('view engine', 'html');
-app.use(express.static(__dirname + "./../dist"));
+app.use(express.static(__dirname + "./../../dist"));
 
-// app.get("/", function(req, res) {
-//     res.sendFile(path.join(__dirname + "./../dist/index.html"));
-// });
+
 app.get("/test", function(req, res) {
     res.send({
         "_id": {
@@ -31,6 +29,8 @@ app.get("/test", function(req, res) {
     });
 });
 
-// require('./pastProjectsService')(app);
+app.get("/*", function(req, res) {
+    res.sendFile(path.join(__dirname + "./../../dist/index.html"));
+});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import General from "./views/General/General";
 import Skills from "./views/Skills/Skills";
@@ -9,27 +9,42 @@ import PastProjects from "./views/PastProjects/PastProjects";
 import Teams from "./views/Teams/Teams";
 import styles from "./App.css";
 
-const mapStateToProps = state => ({
-  activeItem: state.header.activeItem
-});
+// const routes = [
+//   {
+//     path: "/general",
+//     component: General
+//   },
+//   {
+//     path: "/skills",
+//     component: Skills
+//   },
+//   {
+//     path: "/personal",
+//     component: Personal
+//   },
+//   {
+//     path: "/pastProjects",
+//     component: PastProjects
+//   },
+//   {
+//     path: "/courses",
+//     component: Courses
+//   }
+// ];
 
-// router
-const App = ({ activeItem }) => {
+const App = () => (
+  <Router>
+    <Switch>
+      <Route path="/general" component={General} />
+      <Route path="/skills" component={Skills} />
+      <Route path="/personal" component={Personal} />
+      <Route path="/pastProjects" component={PastProjects} />
+      <Route path="/courses" component={Courses} />
+      <Route path="/teams" component={Teams} />
+      
+      <Redirect from="/" to="/general" />
+    </Switch>
+  </Router>
+);
 
-  switch (activeItem) {
-    case "general":
-      return <General />;
-    case "skills":
-      return <Skills />;
-    case "teams":
-      return <Teams />;
-    case "personal":
-      return <Personal />;
-    case "pastProjects":
-      return <PastProjects />;
-    case "courses":
-      return <Courses />;
-  }
-};
-
-export default connect(mapStateToProps)(App);
+export default App;
