@@ -1,19 +1,18 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { connect } from "react-redux";
-import { Table } from "semantic-ui-react"
+import { Table } from "semantic-ui-react";
 
-const mapStateToProps = state  => ({
+const mapStateToProps = state => ({
   characteristics: state.general.characteristics
 });
 
-const Primary = ({characteristics}) => (
-
-    <Table fixed>
+const Primary = ({ characteristics }) => (
+  <Table style={{ width: '70%', margin: '0em 1em' }}>
     <Table.Header>
       <Table.Row>
         <Table.HeaderCell>Primary</Table.HeaderCell>
-        <Table.HeaderCell/>
+        <Table.HeaderCell />
       </Table.Row>
     </Table.Header>
 
@@ -47,7 +46,7 @@ const Primary = ({characteristics}) => (
         <Table.Cell>{characteristics.mentor}</Table.Cell>
       </Table.Row>
     </Table.Body>
-    </Table>
+  </Table>
 );
 
 export default connect(mapStateToProps)(Primary);
