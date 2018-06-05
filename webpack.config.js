@@ -51,10 +51,5 @@ module.exports = env => {
         DEVELOPMENT_MODE: env.production === "false" ? true : false
       })
     ],
-    devServer :{
-      proxy: {
-        '/': 'http:localhost:3000',
-      }
-    }
   };
 };
