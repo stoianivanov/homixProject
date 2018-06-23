@@ -7,6 +7,9 @@ app.set('view engine', 'html');
 app.use(express.static(__dirname + "./../../dist"));
 
 require('./pastProjectsService')(app);
+require('./userService')(app);
+require('./authService')(app);
+require('./teamService')(app);
 
 app.get("/*", function(req, res) {
     res.sendFile(path.join(__dirname + "./../../dist/index.html"));

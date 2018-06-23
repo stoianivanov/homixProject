@@ -42,6 +42,8 @@ const initialState = {
 
 const general = (state = initialState, action) => {
   switch (action.type) {
+    case "RECEIVED_USER":
+      return { characteristics: state.characteristics, projectRoles:  state.projectRoles, user: action.payload};
     default:
       return state;
   }

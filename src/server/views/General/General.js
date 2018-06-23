@@ -19,7 +19,7 @@ const mapDispatchToProps = dispatch => ({
 class General extends Component {
 	componentDidMount() {
 		// this.setState({ loadingPastProjects: true });
-		fetch('http://localhost:3000/user/ivanka_ivanova@abv.bg')
+		fetch('http://localhost:3001/user/ivanka_ivanova@abv.bg')
 			.then(response => response.json())
 			.then(data => {
 				console.log(data);

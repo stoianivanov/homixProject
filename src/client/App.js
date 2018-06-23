@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
+import Login from "./views/Login/Login"
 import General from "./views/General/General";
 import Skills from "./views/Skills/Skills";
 import Courses from "./views/Courses/Courses";
@@ -9,32 +10,11 @@ import PastProjects from "./views/PastProjects/PastProjects";
 import Teams from "./views/Teams/Teams";
 import styles from "./App.css";
 
-// const routes = [
-//   {
-//     path: "/general",
-//     component: General
-//   },
-//   {
-//     path: "/skills",
-//     component: Skills
-//   },
-//   {
-//     path: "/personal",
-//     component: Personal
-//   },
-//   {
-//     path: "/pastProjects",
-//     component: PastProjects
-//   },
-//   {
-//     path: "/courses",
-//     component: Courses
-//   }
-// ];
 
 const App = () => (
   <Router>
     <Switch>
+     <Route path="/login" component={Login} />
       <Route path="/general" component={General} />
       <Route path="/skills" component={Skills} />
       <Route path="/personal" component={Personal} />
@@ -42,7 +22,7 @@ const App = () => (
       <Route path="/courses" component={Courses} />
       <Route path="/teams" component={Teams} />
       
-      <Redirect from="/" to="/general" />
+      <Redirect from="/" to="/login" />
     </Switch>
   </Router>
 );
