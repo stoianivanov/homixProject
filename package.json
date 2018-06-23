@@ -4,7 +4,7 @@
   "description": "Homix",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/server/index.js",
+    "start": "npm run build & node ./src/server/index.js",
     "dev": "webpack-dev-server --env.production=false --mode development --open",
     "prod": "webpack-dev-server --env.production=true --mode production --open",
     "build": "webpack --env.production=true --mode production --output ./dist/bundle.js"

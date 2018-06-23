@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { Table } from "semantic-ui-react";
+import { Table, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 
 const mapStateToProps = state => ({
@@ -10,11 +10,22 @@ const mapStateToProps = state => ({
 const Project = ({ pastProjects }) => (
   <div>
     {pastProjects.map(project => (
-      <Table style={{ margin: "0em 1em", width: "70%" }}>
+      <Table>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>{project.name}</Table.HeaderCell>
             <Table.HeaderCell />
+            <Button
+              onClick={() => {
+                fetch(`http://localhost:3000/pastProject/${project._id}`, {
+                  method: "delete"
+                });
+              }}
+              negative
+            >
+              {" "}
+              Delete{" "}
+            </Button>
           </Table.Row>
         </Table.Header>
 
