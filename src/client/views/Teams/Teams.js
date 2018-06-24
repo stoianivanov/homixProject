@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { Loader } from 'semantic-ui-react';
 import { Card, Feed } from 'semantic-ui-react';
 
-
 const mapStateToProps = state => ({
   teams: state.teams.teams
 });
@@ -26,12 +25,10 @@ class Teams extends Component {
 		}
 	}
   componentWillMount() {
-		console.log("DEBUG MASTER");
 		this.setState({ loadingTeams: true });
 		fetch('http://localhost:3000/teams')
 			.then(response => response.json())
 			.then(data => {
-				console.log(data);
 				this.setState({ loadingTeams: false });
 				this.props.fetchTeam(data);
 			})
