@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
-import Header from "../Header/Header";
+import CustomHeader from "../Header/Header";
 import {receiveTeam} from '../../store/actions/team';
 import { connect } from 'react-redux';
-import { Loader } from 'semantic-ui-react';
-import { Card, Feed } from 'semantic-ui-react';
+import { Card, Feed, Header, Loader, Button } from 'semantic-ui-react';
+
+import TeamMember from './submodules/TeamMember'
 
 
 const mapStateToProps = state => ({
@@ -43,39 +44,34 @@ class Teams extends Component {
 		if(this.state.loadingTeams) {
 			return <Loader />
 		}
-		const teams = this.props.teams.map( team =>
-				(
-					<Card>
-			<Card.Content>
-				<Card.Header>{team.name}</Card.Header>
-			</Card.Content>
-			<Card.Content>
-			<Feed>
-				{team.members.map(member => 
-					(
-						<Feed.Event>
-						<Feed.Label image='/assets/images/avatar/small/jenny.jpg' />
-						<Feed.Content>
-							<Feed.Date content='1 day ago' />
-							<Feed.Summary>
-								{member.name} {member.position}
-							</Feed.Summary>
-						</Feed.Content>
-					</Feed.Event>
-					))}
 
-				</Feed>
-			</Card.Content>
-			</Card>
-		)
 		
-		);
+
     return (
 
       <div>
-              <h1> TEST</h1>
-							{this.props.teams.map(team => <h1>{team.name}</h1>)}
-							{teams}
+              <Fragment>
+							<CustomHeader activeItem={'teams'}/>
+							
+							
+							{this.props.teams.map( team => (
+								<Fragment>
+								<Header size='medium'>{team.name}</Header>
+								<Card.Group style={{
+									    padding: "10px"
+								}}>
+									{team.members.map(member => <TeamMember member={member}/>)}
+								</Card.Group>
+								<Button
+									positive
+									style={{ margin: "1em 0em" }}>
+									Add
+								</Button>
+								</Fragment>
+							)
+							)}
+							</Fragment>
+
         </div>
     );
   }
