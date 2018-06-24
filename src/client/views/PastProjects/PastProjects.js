@@ -118,7 +118,6 @@ class PastProjects extends Component {
                   })
                     .then(() => response.json())
                     .then(() => {
-                      console.log("maha se");
                       this.setState({
                         showForm: false,
                         projectName: "",

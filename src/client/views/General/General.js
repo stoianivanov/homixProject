@@ -22,7 +22,6 @@ class General extends Component {
 		fetch('http://localhost:3000/user/ivanka_ivanova@abv.bg')
 			.then(response => response.json())
 			.then(data => {
-				console.log(data);
 				// this.setState({ loadingPastProjects: false });
 				this.props.fetchUser(data[0]);
 			})
