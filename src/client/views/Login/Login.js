@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Card, Button, Checkbox, Form, Popup } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { receivedAuth } from "../../store/actions/auth";
-import { push, withRouter } from "react-router";
+import { withRouter } from "react-router";
 
 const mapStateToProps = state => ({
   user: state.general.user
@@ -23,12 +23,12 @@ class Login extends Component {
   }
 
   signIn() {
-    fetch("http://localhost:3000/auth/")
+    fetch(`http://localhost:3000/auth/${this.state.username}`)
       .then(response => response.json())
       .then(data => {
         // this.setState({ loadingPastProjects: false });
         const user = data.filter(e => {
-          return e.username === this.state.username;
+          return e.email === this.state.username;
         });
         if (user.length > 0) {
           this.setState({
@@ -52,37 +52,36 @@ class Login extends Component {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "100%"
+          height: "100%",
+          backgroundImage:
+            "url(http://totceeaceeste.ro/wp-content/uploads/2017/08/mea1.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center"
         }}
       >
         <Card style={{ padding: "1em" }}>
-          <Form>
-            <Form.Field>
-              <label>User name</label>
-              <input
-                placeholder="User name"
-                value={this.state.username}
-                onChange={e => {
-                  this.setState({ username: e.target.value });
-                }}
-              />
-            </Form.Field>
-            <Form.Field>
-              <label>Password</label>
-              <input placeholder="Password" type="password" />
-            </Form.Field>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center"
-              }}
-            >
-              <Button type="submit" onClick={this.signIn}>
+          <Card.Content>
+            <Form>
+              <Form.Field>
+                <label>User name</label>
+                <input
+                  placeholder="Email"
+                  value={this.state.username}
+                  onChange={e => {
+                    this.setState({ username: e.target.value.trim() });
+                  }}
+                />
+              </Form.Field>
+              <Form.Field>
+                <label>Password</label>
+                <input type="password" />
+              </Form.Field>
+              <Button type="submit" primary fluid onClick={this.signIn}>
                 Sign In
               </Button>
-              <Button type="submit">Sign Up</Button>
-            </div>
-          </Form>
+            </Form>
+          </Card.Content>
         </Card>
       </div>
     );

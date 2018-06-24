@@ -13,9 +13,9 @@ const InfoCard = ({user}) => (
   <Card>
     <Image src={user.profilePicture} />
     <Card.Content>
-      <Card.Header>{user.firstName} {user.lastName}</Card.Header>
+      <Card.Header>{user.name}</Card.Header>
       <Card.Meta>Joined in {user.startDate}</Card.Meta>
-      <Card.Description>{user.position}</Card.Description>
+      <Card.Description>{user.type}</Card.Description>
     </Card.Content>
     <Card.Content extra>
       <div>

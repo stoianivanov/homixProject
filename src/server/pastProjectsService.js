@@ -13,6 +13,7 @@ module.exports = function(app) {
     console.log({...req.body})
     pastProjects.insert({ ...req.body });
   });
+
   app.delete("/pastProject/:id", function(req, res) {
     pastProjects.findOneAndDelete({ "_id" : new mongodb.ObjectID(req.params.id) });
   });

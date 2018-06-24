@@ -7,7 +7,8 @@ import styles from "./General.css";
 import { receiveUser } from "../../store/actions/user";
 
 const mapStateToProps = state => ({
-  user: state.general.user
+  user: state.general.user,
+  loggedUser: state.auth.loggedUser
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -16,11 +17,9 @@ const mapDispatchToProps = dispatch => ({
 
 class General extends Component {
   componentDidMount() {
-    // this.setState({ loadingPastProjects: true });
-    fetch("http://localhost:3000/user/ivanka_ivanova@abv.bg")
+    fetch(`http://localhost:3000/user/${this.props.loggedUser.email}`)
       .then(response => response.json())
       .then(data => {
-        // this.setState({ loadingPastProjects: false });
         this.props.fetchUser(data[0]);
       })
       .catch(error => {

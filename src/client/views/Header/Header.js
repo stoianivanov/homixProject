@@ -21,6 +21,7 @@ const mapDispatchToProps = dispatch => ({
 const Header = ({ changeItem, loggedUser, logout, location, history }) => (
   <Menu pointing secondary style={{ background: "white" }}>
     <Menu.Menu position="left">
+      <Menu.Item header>HOMIX</Menu.Item>
       <Link to="/general">
         <Menu.Item
           name="general"
@@ -35,24 +36,10 @@ const Header = ({ changeItem, loggedUser, logout, location, history }) => (
           onClick={changeItem}
         />
       </Link>
-      <Link to="/personal">
-        <Menu.Item
-          name="personal"
-          active={location.pathname === "/personal"}
-          onClick={changeItem}
-        />
-      </Link>
       <Link to="/pastProjects">
         <Menu.Item
           name="pastProjects"
           active={location.pathname === "/pastProjects"}
-          onClick={changeItem}
-        />
-      </Link>
-      <Link to="/courses">
-        <Menu.Item
-          name="courses"
-          active={location.pathname === "/courses"}
           onClick={changeItem}
         />
       </Link>
@@ -78,15 +65,18 @@ const Header = ({ changeItem, loggedUser, logout, location, history }) => (
             style={{
               display: "flex",
               alignItems: "center",
-              justifyContent: "space-between"
+              justifyContent: "space-between",
+              cursor: "pointer",
+              marginRight: "1em"
             }}
           >
-            <span>{loggedUser.firstName}</span>
+            <span style={{ marginRight: "1em" }}>{loggedUser.name}</span>
             <Image avatar src={loggedUser.profilePicture} />
           </div>
         }
         content={
           <Item
+            style={{ cursor: "pointer" }}
             onClick={() => {
               logout();
               history.push("/login");

@@ -31,7 +31,6 @@ class Developers extends Component {
       );
       return matchedSkills.length > 0;
     });
-    console.log(filteredDevelopers);
 
     this.setState({ developers: filteredDevelopers, isLoading: false });
   }
