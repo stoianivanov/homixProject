@@ -1,77 +1,56 @@
 import React, { Component, Fragment } from "react";
-import ReactDOM from "react-dom";
-import CustomHeader from "../Header/Header";
-import {receiveTeam} from '../../store/actions/team';
-import { connect } from 'react-redux';
-import { Card, Feed, Header, Loader, Button } from 'semantic-ui-react';
-
-import TeamMember from './submodules/TeamMember'
+import Header from "../Header/Header";
+import { receiveTeam } from "../../store/actions/team";
+import { connect } from "react-redux";
+import { Loader } from "semantic-ui-react";
+import Team from "./submodules/Team";
 
 const mapStateToProps = state => ({
   teams: state.teams.teams
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchTeam: (teams) => dispatch(receiveTeam(teams))
+  fetchTeam: teams => dispatch(receiveTeam(teams))
 });
 
-
-
 class Teams extends Component {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
 
-		this.state = {
-			loadingTeams: false,
-		}
+    this.state = {
+      loadingTeams: false
+    };
 	}
+
   componentWillMount() {
-		this.setState({ loadingTeams: true });
-		fetch('http://localhost:3000/teams')
-			.then(response => response.json())
-			.then(data => {
-				this.setState({ loadingTeams: false });
-				this.props.fetchTeam(data);
-			})
-			.catch(error => {
-				console.log(error);
-			});
-	}
+    this.setState({ loadingTeams: true });
+    fetch("http://localhost:3000/teams")
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ loadingTeams: false });
+        this.props.fetchTeam(data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   render() {
-		if(this.state.loadingTeams) {
-			return <Loader />
-		}
-
-		
+    if (this.state.loadingTeams) {
+      return <Loader />;
+    }
 
     return (
-
       <div>
-              <Fragment>
-							<CustomHeader activeItem={'teams'}/>
-							
-							
-							{this.props.teams.map( team => (
-								<Fragment>
-								<Header size='medium'>{team.name}</Header>
-								<Card.Group style={{
-									    padding: "10px"
-								}}>
-									{team.members.map(member => <TeamMember member={member}/>)}
-								</Card.Group>
-								<Button
-									positive
-									style={{ margin: "1em 0em" }}>
-									Add
-								</Button>
-								</Fragment>
-							)
-							)}
-							</Fragment>
-
-        </div>
+        <Fragment>
+          <Header activeItem={"teams"} />
+          {this.props.teams.map(team => <Team team={team} />)}
+        </Fragment>
+      </div>
     );
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Teams); 
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Teams);
