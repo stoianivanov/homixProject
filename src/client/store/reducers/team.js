@@ -1,5 +1,3 @@
-import { bindActionCreators } from "../../../../../../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/redux";
-
 const teams = (state = { teams: [{ members: [] }] }, action) => {
   switch (action.type) {
     case "RECEIVED_TEAM": {

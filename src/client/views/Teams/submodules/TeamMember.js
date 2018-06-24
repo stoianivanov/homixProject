@@ -9,7 +9,7 @@ const TeamMembers = ({ member }) => {
         <Card.Header>{member.name}</Card.Header>
         <Card.Meta>{member.type}</Card.Meta>
         <Card.Description>
-          Use {member.skills.map(skill => <span>{skill} </span>)}
+          Use {member.skills.map(skill => <span>{skill.name} </span>)}
         </Card.Description>
       </Card.Content>
     </Card>
