@@ -39,7 +39,13 @@ class Team extends Component {
         >
           Add
         </Button>
-        {this.state.showSearch && <Developers />}
+        {this.state.showSearch && (
+          <Developers
+            updateParent={() => {
+              this.setState({ showSearch: false });
+            }}
+          />
+        )}
       </Fragment>
     );
   }

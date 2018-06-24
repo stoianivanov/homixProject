@@ -6,7 +6,7 @@ const teams = db.get("teams");
 const users = db.get("users");
 
 module.exports = function(app) {
-  app.get("/teams/", function(req, res) {
+  app.get("/teams", function(req, res) {
     teams
       .aggregate([
         {
@@ -32,6 +32,32 @@ module.exports = function(app) {
       ])
       .then(data => {
         res.json(data);
+      });
+  });
+
+  app.get("/freelancers", function(req, res) {
+    users.find({ free: "true" }).then(data => res.json(data));
+  });
+
+  app.post("/addNewMember", function(req, res) {
+    teams
+      .update(
+        { "_id": new mongodb.ObjectID(req.body.teamId) },
+        {
+          $push: { "members": req.body.developerId }
+        }
+      )
+      .then(() => {
+        users
+          .update(
+            { "_id": new mongodb.ObjectID(req.body.developerId) },
+            {
+              $set: {
+                free: "false"
+              }
+            }
+          )
+          .then(() => res.end());
       });
   });
 };

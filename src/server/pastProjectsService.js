@@ -10,7 +10,6 @@ module.exports = function(app) {
   });
 
   app.post("/pastProject", function(req, res) {
-    console.log({...req.body})
     pastProjects.insert({ ...req.body });
   });
 

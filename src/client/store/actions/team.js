@@ -8,7 +8,7 @@ const receiveTeam = teams => ({
 
 const addDev = dev => ({
   type: "ADD_DEVELOPER",
-  dev
+  dev,
 });
 
 const selectTeam = team => ({
@@ -16,4 +16,9 @@ const selectTeam = team => ({
   teamId: team._id
 });
 
-export { receiveTeam, addDev, selectTeam };
+const receiveFreeDevs = devs => ({
+  type: "RECEIVE_FREELANCERS",
+  payload: devs
+});
+
+export { receiveTeam, addDev, selectTeam, receiveFreeDevs };
