@@ -63,6 +63,13 @@ const Header = ({ changeItem, loggedUser, logout, location, history }) => (
           onClick={changeItem}
         />
       </Link>
+      <Link to="/developers">
+        <Menu.Item
+          name="developers"
+          active={location.pathname === "/developers"}
+          onClick={changeItem}
+        />
+      </Link>
     </Menu.Menu>
     <Menu.Menu position="right">
       <Popup

@@ -13,6 +13,7 @@ import Courses from "./views/Courses/Courses";
 import Personal from "./views/Personal/Personal";
 import PastProjects from "./views/PastProjects/PastProjects";
 import Teams from "./views/Teams/Teams";
+import DevelopersSearch from "./views/DevelopersSearch/DevelopersSearch";
 import PrivateRoute from "./PrivateRoute";
 
 const App = () => (
@@ -25,6 +26,7 @@ const App = () => (
       <PrivateRoute path="/pastProjects" PrivateComponent={PastProjects} />
       <PrivateRoute path="/courses" PrivateComponent={Courses} />
       <PrivateRoute path="/teams" PrivateComponent={Teams} />
+      <PrivateRoute path="/developers" PrivateComponent={DevelopersSearch} />
 
       <Redirect from="/" to="/login" />
     </Switch>
