@@ -30,7 +30,7 @@ class PastProjects extends Component {
 
   showForm() {
     this.setState({
-      showForm: true
+      showForm: !this.state.showForm,
     });
   }
 
@@ -57,7 +57,7 @@ class PastProjects extends Component {
             Add
           </Button>
           {this.state.showForm && (
-            <Form style={{ width: "70%", margin: "1em 0em" }}>
+            <Form style={{ width: "40%", margin: "1em 0em" }}>
               <Form.Input
                 fluid
                 label="Project name"

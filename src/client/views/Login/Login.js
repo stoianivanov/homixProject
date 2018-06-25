@@ -64,9 +64,8 @@ class Login extends Component {
           <Card.Content>
             <Form>
               <Form.Field>
-                <label>User name</label>
+                <label>Email</label>
                 <input
-                  placeholder="Email"
                   value={this.state.username}
                   onChange={e => {
                     this.setState({ username: e.target.value.trim() });

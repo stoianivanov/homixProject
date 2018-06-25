@@ -20,7 +20,7 @@ class Teams extends Component {
     this.state = {
       loadingTeams: false
     };
-	}
+  }
 
   componentWillMount() {
     this.setState({ loadingTeams: true });
@@ -43,7 +43,9 @@ class Teams extends Component {
       <div>
         <Fragment>
           <Header activeItem={"teams"} />
-          {this.props.teams.map(team => <Team team={team} />)}
+          <div style={{ padding: "1em" }}>
+            {this.props.teams.map(team => <Team team={team} />)}
+          </div>
         </Fragment>
       </div>
     );

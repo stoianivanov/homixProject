@@ -29,31 +29,33 @@ class Developer extends Component {
               <Label horizontal>{skill.name}</Label>
             ))}
           </Card.Description>
-          <Card.Content extra>
-            <Button
-              basic
-              color="green"
-              onClick={() => {
-                const data = {
-                  teamId: this.props.selectedTeamId,
-                  developerId: developer._id
-                };
-                console.log(data);
-                fetch("http://localhost:3000/addNewMember", {
-                  method: "post",
-                  headers: {
-                    "Content-Type": "application/json"
-                  },
-                  body: JSON.stringify(data)
-                }).then(() => {
-                  addDeveloper(developer);
-                  updateParent();
-                });
-              }}
-            >
-              Approve
-            </Button>
-          </Card.Content>
+          {this.props.dev === "freelancers" && (
+            <Card.Content extra>
+              <Button
+                basic
+                color="green"
+                onClick={() => {
+                  const data = {
+                    teamId: this.props.selectedTeamId,
+                    developerId: developer._id
+                  };
+                  console.log(data);
+                  fetch("http://localhost:3000/addNewMember", {
+                    method: "post",
+                    headers: {
+                      "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                  }).then(() => {
+                    addDeveloper(developer);
+                    updateParent();
+                  });
+                }}
+              >
+                Approve
+              </Button>
+            </Card.Content>
+          )}
         </Card.Content>
       </Card>
     );

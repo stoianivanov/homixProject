@@ -1,4 +1,7 @@
-const teams = (state = { teams: [{ members: [] }], selectedTeamId: -1 }, action) => {
+const teams = (
+  state = { teams: [{ members: [] }], selectedTeamId: -1 },
+  action
+) => {
   switch (action.type) {
     case "RECEIVE_FREELANCERS": {
       return {

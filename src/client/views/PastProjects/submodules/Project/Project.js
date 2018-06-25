@@ -14,18 +14,20 @@ const Project = ({ pastProjects }) => (
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>{project.name}</Table.HeaderCell>
-            <Table.HeaderCell />
-            <Button
-              onClick={() => {
-                fetch(`http://localhost:3000/pastProject/${project._id}`, {
-                  method: "delete"
-                });
-              }}
-              negative
-            >
-              {" "}
-              Delete{" "}
-            </Button>
+            <Table.HeaderCell>
+              <Button
+                basic
+                color="red"
+                onClick={() => {
+                  fetch(`http://localhost:3000/pastProject/${project._id}`, {
+                    method: "delete"
+                  });
+                }}
+              >
+                {" "}
+                Delete{" "}
+              </Button>
+            </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 

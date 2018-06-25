@@ -14,6 +14,6 @@ module.exports = function(app) {
   });
 
   app.delete("/pastProject/:id", function(req, res) {
-    pastProjects.findOneAndDelete({ "_id" : new mongodb.ObjectID(req.params.id) });
+    pastProjects.findOneAndDelete({ _id: new mongodb.ObjectID(req.params.id) });
   });
 };

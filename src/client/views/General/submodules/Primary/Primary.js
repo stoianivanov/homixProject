@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const Primary = ({ characteristics }) => (
-  <Table style={{ width: '70%', margin: '0em 1em' }}>
+  <Table style={{ width: "70%", margin: "0em 1em" }}>
     <Table.Header>
       <Table.Row>
         <Table.HeaderCell>Primary</Table.HeaderCell>

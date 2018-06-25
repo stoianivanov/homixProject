@@ -33,7 +33,7 @@ class Team extends Component {
           positive
           style={{ margin: "1em 0em" }}
           onClick={() => {
-            this.setState({ showSearch: true });
+            this.setState({ showSearch: !this.state.showSearch });
             this.props.changeSelectedTeam(team);
           }}
         >
@@ -41,6 +41,7 @@ class Team extends Component {
         </Button>
         {this.state.showSearch && (
           <Developers
+            devs="freelancers"
             updateParent={() => {
               this.setState({ showSearch: false });
             }}

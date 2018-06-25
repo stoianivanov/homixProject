@@ -8,7 +8,7 @@ class DevelopersSearch extends Component {
     return (
       <Fragment>
         <Header activeItem={"developers"} />
-        <Developers />
+        <Developers devs="allDevs" updateParent={() => {}} />
       </Fragment>
     );
   }

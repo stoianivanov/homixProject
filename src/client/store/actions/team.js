@@ -8,7 +8,7 @@ const receiveTeam = teams => ({
 
 const addDev = dev => ({
   type: "ADD_DEVELOPER",
-  dev,
+  dev
 });
 
 const selectTeam = team => ({

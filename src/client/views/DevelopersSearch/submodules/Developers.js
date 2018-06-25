@@ -27,7 +27,7 @@ class Developers extends Component {
   }
 
   componentWillMount() {
-    fetch("http://localhost:3000/freelancers")
+    fetch(`http://localhost:3000/${this.props.devs}`)
       .then(response => response.json())
       .then(data => {
         this.props.receiveFreelancers(data);
@@ -37,14 +37,21 @@ class Developers extends Component {
 
   search() {
     this.setState({ isLoading: true });
-    const filteredDevelopers = this.props.developers.filter(developer => {
-      const matchedSkills = developer.skills.filter(skill =>
-        skill.name
-          .toLowerCase()
-          .includes(this.state.searchedValue.toLowerCase().trim())
+    let filteredDevelopers = [];
+    if (this.props.devs === "freelancers") {
+      filteredDevelopers = this.props.developers.filter(developer => {
+        const matchedSkills = developer.skills.filter(skill =>
+          skill.name
+            .toLowerCase()
+            .includes(this.state.searchedValue.toLowerCase().trim())
+        );
+        return matchedSkills.length > 0;
+      });
+    } else {
+      filteredDevelopers = this.props.developers.filter(developer =>
+        developer.name.startsWith(this.state.searchedValue)
       );
-      return matchedSkills.length > 0;
-    });
+    }
 
     this.setState({ developers: filteredDevelopers, isLoading: false });
   }
@@ -55,16 +62,18 @@ class Developers extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ padding: "1em" }}>
         <Input
           placeholder="Search..."
           onChange={this.handleSearchChange}
           value={this.state.searchedValue}
+          style={{ marginRight: "1em", marginBottom: "1em" }}
         />
         <Button onClick={this.search}>Search </Button>
         <Card.Group itemsPerRow={3}>
           {this.state.developers.map(developer => (
             <Developer
+              dev={this.props.devs}
               developer={developer}
               updateParent={this.props.updateParent}
             />

@@ -2,15 +2,15 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const path = require("path");
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 
 app.set("view engine", "html");
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "./../../dist"));
 
-require('./pastProjectsService')(app);
-require('./userService')(app);
-require('./teamService')(app);
+require("./pastProjectsService")(app);
+require("./userService")(app);
+require("./teamService")(app);
 
 app.get("/*", function(req, res) {
   res.sendFile(path.join(__dirname + "./../../dist/index.html"));

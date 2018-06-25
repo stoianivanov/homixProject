@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import {Table, Header, Icon} from "semantic-ui-react";
+import { Table, Header, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
 
 const mapStateToProps = state => ({
@@ -20,7 +20,7 @@ const PersonalInfomation = ({ personalinformation }) => (
       <Table.Row>
         <Table.Cell>
           <Header as="h4" image>
-            <Icon name='user' />
+            <Icon name="user" />
             <Header.Content>Native Name</Header.Content>
           </Header>
         </Table.Cell>
@@ -30,7 +30,7 @@ const PersonalInfomation = ({ personalinformation }) => (
       <Table.Row>
         <Table.Cell>
           <Header as="h4" image>
-            <Icon name='heterosexual' />
+            <Icon name="heterosexual" />
             <Header.Content>Gender</Header.Content>
           </Header>
         </Table.Cell>
@@ -40,16 +40,16 @@ const PersonalInfomation = ({ personalinformation }) => (
       <Table.Row>
         <Table.Cell>
           <Header as="h4" image>
-            <Icon name='birthday' />
+            <Icon name="birthday" />
             <Header.Content>Birthday</Header.Content>
           </Header>
         </Table.Cell>
         <Table.Cell>{personalinformation.birthday}</Table.Cell>
       </Table.Row>
-            <Table.Row>
+      <Table.Row>
         <Table.Cell>
           <Header as="h4" image>
-            <Icon name='id card' />
+            <Icon name="id card" />
             <Header.Content>Governmental Id</Header.Content>
           </Header>
         </Table.Cell>
@@ -59,7 +59,7 @@ const PersonalInfomation = ({ personalinformation }) => (
       <Table.Row>
         <Table.Cell>
           <Header as="h4" image>
-            <Icon name='drivers license' />
+            <Icon name="drivers license" />
             <Header.Content>Driver License / EXP</Header.Content>
           </Header>
         </Table.Cell>
@@ -69,17 +69,17 @@ const PersonalInfomation = ({ personalinformation }) => (
       <Table.Row>
         <Table.Cell>
           <Header as="h4" image>
-            <Icon name='user' />
+            <Icon name="user" />
             <Header.Content>T-shirt size</Header.Content>
           </Header>
         </Table.Cell>
         <Table.Cell>{personalinformation.tShtirtSize}</Table.Cell>
       </Table.Row>
 
-            <Table.Row>
+      <Table.Row>
         <Table.Cell>
           <Header as="h4" image>
-            <Icon name='laptop' />
+            <Icon name="laptop" />
             <Header.Content>Remote Work Possibility</Header.Content>
           </Header>
         </Table.Cell>

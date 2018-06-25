@@ -9,8 +9,6 @@ import {
 import Login from "./views/Login/Login";
 import General from "./views/General/General";
 import Skills from "./views/Skills/Skills";
-// import Courses from "./views/Courses/Courses";
-// import Personal from "./views/Personal/Personal";
 import PastProjects from "./views/PastProjects/PastProjects";
 import Teams from "./views/Teams/Teams";
 import DevelopersSearch from "./views/DevelopersSearch/DevelopersSearch";
@@ -22,9 +20,7 @@ const App = () => (
       <Route path="/login" component={Login} />
       <PrivateRoute path="/general" PrivateComponent={General} />
       <PrivateRoute path="/skills" PrivateComponent={Skills} />
-      {/* <PrivateRoute path="/personal" PrivateComponent={Personal} /> */}
       <PrivateRoute path="/pastProjects" PrivateComponent={PastProjects} />
-      {/* <PrivateRoute path="/courses" PrivateComponent={Courses} /> */}
       <PrivateRoute path="/teams" PrivateComponent={Teams} />
       <PrivateRoute path="/developers" PrivateComponent={DevelopersSearch} />
 
